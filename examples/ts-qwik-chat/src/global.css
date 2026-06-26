@@ -185,6 +185,133 @@ h1 {
   color: #cbd5e1;
 }
 
+.tool-block {
+  display: grid;
+  gap: 10px;
+}
+
+.tool-block + .tool-block {
+  margin-top: 12px;
+}
+
+.tool-status {
+  display: inline-flex;
+  width: fit-content;
+  max-width: 100%;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 9px;
+  border: 1px solid rgb(45 212 191 / 0.28);
+  border-radius: 6px;
+  color: #ccfbf1;
+  background: rgb(15 118 110 / 0.18);
+  font-size: 0.82rem;
+}
+
+.tool-status span:first-child {
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.approval-card {
+  display: grid;
+  gap: 12px;
+  padding: 12px;
+  border: 1px solid rgb(251 191 36 / 0.28);
+  border-radius: 8px;
+  background: rgb(120 53 15 / 0.22);
+}
+
+.approval-card strong {
+  display: block;
+  margin-bottom: 8px;
+  color: #fef3c7;
+}
+
+.approval-card pre {
+  margin: 0;
+}
+
+.approval-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.approval-actions button {
+  min-height: 38px;
+  padding: 0 12px;
+  border: 0;
+  border-radius: 6px;
+  color: #ffffff;
+  background: #0f766e;
+  font-weight: 700;
+}
+
+.approval-actions button.secondary {
+  background: #475569;
+}
+
+.guitar-card {
+  display: grid;
+  grid-template-columns: minmax(120px, 180px) 1fr;
+  overflow: hidden;
+  border: 1px solid rgb(251 146 60 / 0.26);
+  border-radius: 8px;
+  background: rgb(15 23 42 / 0.78);
+}
+
+.guitar-image-wrap {
+  min-height: 150px;
+  background: #020617;
+}
+
+.guitar-image-wrap img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.guitar-content {
+  display: grid;
+  align-content: start;
+  gap: 10px;
+  padding: 14px;
+}
+
+.guitar-content h3 {
+  margin: 0;
+  color: #ffffff;
+  font-size: 1.08rem;
+  letter-spacing: 0;
+}
+
+.guitar-content p {
+  margin: 0;
+  color: #cbd5e1;
+}
+
+.guitar-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.guitar-meta strong {
+  color: #86efac;
+  font-size: 1.08rem;
+}
+
+.guitar-meta span {
+  color: #fed7aa;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
 .error-message {
   margin: 0;
   padding: 12px 20px;
@@ -250,5 +377,13 @@ h1 {
 
   .composer button {
     width: 100%;
+  }
+
+  .guitar-card {
+    grid-template-columns: 1fr;
+  }
+
+  .guitar-image-wrap {
+    min-height: 210px;
   }
 }

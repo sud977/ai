@@ -83,12 +83,13 @@ export function useChat<
   type Partial = DeepPartial<InferSchemaType<NonNullable<TSchema>>>
   type Final = InferSchemaType<NonNullable<TSchema>>
 
-  useVisibleTask$(({ cleanup }) => {
+  useVisibleTask$(async ({ cleanup }) => {
     const transport = options.connection
       ? { connection: options.connection }
       : options.fetcher
         ? { fetcher: options.fetcher }
         : { connection: fetchServerSentEvents(options.api || '/api/chat') }
+    const tools = options.tools$ ? await options.tools$() : options.tools
 
     const chatClient = new ChatClient<TTools, TContext>({
       devtoolsBridgeFactory: createChatDevtoolsBridge,
@@ -116,7 +117,7 @@ export function useChat<
       onChunk: (chunk: StreamChunk) => options.onChunk?.(chunk),
       onFinish: (message) => options.onFinish?.(message),
       onError: (nextError) => options.onError?.(nextError),
-      tools: options.tools,
+      tools,
       onCustomEvent: (eventType, data, context) =>
         options.onCustomEvent?.(eventType, data, context),
       ...(options.streamProcessor !== undefined && {

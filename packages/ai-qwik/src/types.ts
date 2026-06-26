@@ -52,6 +52,11 @@ export type UseChatOptions<
    * the non-serializable connection adapter can be created in the browser.
    */
   api?: string
+  /**
+   * Qwik-friendly client tool factory. Prefer this over `tools` when tool
+   * implementations capture browser APIs such as localStorage.
+   */
+  tools$?: QRL<() => TTools | Promise<TTools>>
   connection?: ConnectionAdapter
   fetcher?: ChatFetcher
   devtools?: AIDevtoolsDisplayOptions
